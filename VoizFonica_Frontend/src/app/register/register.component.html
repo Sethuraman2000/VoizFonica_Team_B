@@ -1,0 +1,249 @@
+<app-header></app-header>
+<div style="margin-bottom: 210px; padding-top: 10px;margin-top: 50px;">  
+<section class="py-5">
+           
+  <section class="vh-100">
+    <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+
+                <form class="mx-1 mx-md-4" action="action_page.php" [formGroup]="profileForm" id="ro" (ngSubmit)="reg()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user-circle" style="font-size:30px"></i>
+                    <div class="form-outline flex-fill mb-0" style="padding-left: 15px;">
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input type="text" id="form3Example1c" placeholder="Enter Your Name" class="form-control" formControlName="name" name="name" id="name" required />
+                      <div  *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+                     
+                        <div [hidden]="!name.errors.required" class="text-danger">
+               
+                          Name is required
+               
+                        </div>
+               
+                        <div [hidden]="!name.errors.minlength">
+               
+                          Min Length is 5
+               
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  
+                              <div class="d-flex flex-row align-items-center mb-4">
+                                <i  class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label" for="form3Example3c">Age</label>
+                                  <input type="text" id="form3Example3c" placeholder="Enter Your Age" class="form-control" formControlName="age" name="Age" id="Age" required />
+                                  <div  *ngIf="!age?.valid && (age?.dirty ||age?.touched)">
+                     
+                                    <div [hidden]="!age.errors.required" class="text-danger">
+                           
+                                      Age is required
+                           
+                                    </div>
+                           
+                                    <div [hidden]="!age.errors.minlength">
+                           
+                                      Enter correct age
+                           
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">MobileNumber</label>
+                      <input type="text" id="form3Example3c" placeholder="Enter Mobile Number" class="form-control" formControlName="number" name="number" id="number" required/>
+                      <div  *ngIf="!number?.valid && (number?.dirty ||number?.touched)">
+                     
+                        <div [hidden]="!number.errors.required" class="text-danger">
+               
+                          Number is required
+               
+                        </div>
+               
+                        <div [hidden]="!number.errors.minlength">
+               
+                          Enter a valid number
+               
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4cd">Email</label>
+                      <input type="email" id="form3Example4cd" placeholder="Enter Your Email" class="form-control" formControlName="email" name="email" id="email" required/>
+                      <div *ngIf="!email.valid && (email.dirty ||email.touched)" class="text-danger">
+            
+                        <div [hidden]="!email.errors.required">
+                   
+                          Email is required
+                   
+                        </div>
+                   
+                        <div [hidden]="!email.errors.email">
+                   
+                          invalid email id
+                   
+                        </div>
+                   
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                  
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Password</label>
+                      <input type="password" id="form3Example3c" placeholder="Enter Your Password" class="form-control" formControlName="password" name="password" id="password" required/>
+                      <div *ngIf="!password.valid && (password.dirty ||password.touched)" class="text-danger">
+            
+                        <div [hidden]="!password.errors.required">
+                   
+                          Password is required
+                   
+                        </div>
+                   
+                   
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input style="margin-left: -300px;" class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: rgb(57, 48, 189)" class="terms">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg" data-target="ro" [disabled]="!profileForm.valid">Register</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2" style="margin-top: -230px;">
+
+                <img src="assets/images/141_adobe_express.png"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+</div>
+
+<app-footer></app-footer>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        
+    <div class="container">
+      <div class="row">
+        <div class="faq-wrapper">
+          
+          <div class="faq-inner">
+            <div class="faq-item">
+              <h3>
+                1. Your acceptance of these Terms
+                
+              </h3>
+              <div class="faq-body">
+                1.1 By using, visiting, accessing and/or registering with The Register’s website (“Website”) (including all content available through this Website), you have read, understood and agree to be bound by these Terms and the terms and conditions of our privacy policy which can be found here and which are incorporated in these Terms by reference. If you do not agree to be bound by these Terms (as amended from time to time), then please do not use this Website.
+
+<br>1.2 We reserve the right to change, modify, add or delete parts of these Terms at any time and without further notice. Such amendments shall be effective upon posting the revised Terms on the Website.
+
+<br>1.3 These Terms are binding on Members and on non-Members who access and use the Website (“Users”)
+              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                2. Access and Use of this Website
+                
+              </h3>
+              <div class="faq-body">
+                We hereby grant you permission to use the Website in accordance with these Terms, provided that (a) you use the Website solely for your personal, non-commercial use (b) you will not copy or distribute any part of the Website without our prior written authorisation (c) you will not alter, modify, edit or otherwise change any part of the Website other than as may be reasonably necessary to use the Website for its intended purpose and (d) that you will comply with these Terms.
+              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                3. Registration and account security
+                
+              </h3>
+              <div class="faq-body">
+                3.1 To post comments on articles published on the Website and to receive email subscriptions, you will need to create an account, registering as a Member. You are not allowed to use another Member’s account unless you have his or her permission to do so.
+
+<br>3.2 You are solely responsible and liable for any activity occurring on your account, and you must keep your account password secret. You must inform us immediately of any breach of security or unauthorised use of your account by emailing us at support@voizfonica.com. We will investigate any security breaches and we have the right to suspend or terminate the account immediately. We will not be liable for any losses caused by the unauthorised use of your account, but you may be liable for our or other users’ losses caused by such unauthorised use.
+              </div>
+            </div>
+            <hr>
+            <div class="faq-item">
+              <h3>
+                4. Your obligations
+                
+              </h3>
+              <div class="faq-body">
+                4.1 You agree not to use the Website for any illegal purposes and agree to use it in accordance with all the relevant laws.
+
+<br>4.2 You agree not to upload, post on or transmit through the Website any computer viruses, macro viruses, Trojan horses, worms or anything else designed to interfere with, interrupt or disrupt the normal operating procedures of a computer.
+
+<br>4.3 You will not post or otherwise disseminate on the Website any material which is unlawful, obscene, defamatory, libellous, threatening, pornographic, harassing, hateful, racially offensive, or encourages conduct that would be considered a criminal offence, give rise to civil liability, violate any law, or is otherwise inappropriate (“Offensive Material”).
+
+<br>4.4 You will not use the Website in a manner that may cause the Website to be interrupted, damaged, rendered less efficient or such that the effectiveness or functionality of the Website is any way impaired.
+              </div>
+            </div>
+            
+            
+                <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+
+    
+
+
+
+
+
+    
+      
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

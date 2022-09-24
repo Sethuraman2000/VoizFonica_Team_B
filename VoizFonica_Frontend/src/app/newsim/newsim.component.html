@@ -1,0 +1,209 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+  <div class="container">
+
+    
+    
+    <a class="navbar-brand" onclick="history.back()">
+      <img src="assets/images/logo_voizfonice_wo_bg.png" alt="..." height="40">
+    </a> 
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+</div>
+</nav>
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left" style="margin-top: 130px;">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h1>Welcome</h1>
+                        <h6>Submit your new connection request in less than 30 secs!</h6>
+                        
+                    </div>
+                    
+                    <div class="col-md-9 register-right">
+                        <form [formGroup]="profileForm" id="ro" (ngSubmit)="reg()">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Get a new Connection</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Full Name *" value="" formControlName="name" name="name" id="name" required  />
+                                            <div  *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+                     
+                                                <div [hidden]="!name.errors.required" class="text-danger">
+                                       
+                                                  Name is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!name.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Email *" value="" formControlName="email" name="email" id="email" required />
+                                            <div  *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                     
+                                                <div [hidden]="!email.errors.required" class="text-danger">
+                                       
+                                                  Email is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!email.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="Address*" value="" formControlName="address" name="address" id="address" required  />
+                                            <div  *ngIf="!address?.valid && (address?.dirty ||address?.touched)">
+                     
+                                                <div [hidden]="!address.errors.required" class="text-danger">
+                                       
+                                                  Address is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!address.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Select Product
+                                            <select class="form-control" class="hidden" placeholder="Your Age*" value="" formControlName="product" name="product" id="product" required  >
+                                                <option>Prepaid</option>
+                                                <option>Postpaid</option>
+                                                <option>Dongle</option>
+                                                
+                                            </select>
+                                            <div  *ngIf="!product?.valid && (product?.dirty ||product?.touched)">
+                     
+                                                <div [hidden]="!product.errors.required" class="text-danger">
+                                       
+                                                  Product is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!product.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Mobile number*" value="" formControlName="number" name="number" id="number" required />
+                                            <div  *ngIf="!number?.valid && (number?.dirty ||number?.touched)">
+                     
+                                                <div [hidden]="!number.errors.required" class="text-danger">
+                                       
+                                                  Number is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!number.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Age*" value="" formControlName="age" name="age" id="age" required />
+                                            <div  *ngIf="!age?.valid && (age?.dirty ||age?.touched)">
+                     
+                                                <div [hidden]="!age.errors.required" class="text-danger">
+                                       
+                                                  Age is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!age.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Pincode *" value="" formControlName="pincode" name="pincode" id="pincode" required  />
+                                            <div  *ngIf="!pincode?.valid && (pincode?.dirty ||pincode?.touched)">
+                     
+                                                <div [hidden]="!pincode.errors.required" class="text-danger">
+                                       
+                                                  Pincode is required
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!pincode.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Are you Porting?
+                                            <select class="form-control" class="hidden" placeholder="Your Age*" value="" formControlName="port" name="port" id="port" required  >
+                                                
+                                                
+                                                <option>YES</option>
+                                                <option>NO</option>
+                                                
+                                            </select>
+                                            <div  *ngIf="!port?.valid && (port?.dirty ||port?.touched)">
+                     
+                                                <div [hidden]="!port.errors.required" class="text-danger">
+                                       
+                                                  Port must be Selected
+                                       
+                                                </div>
+                                       
+                                                <div [hidden]="!port.errors.minlength">
+                                       
+                                                  Min Length is 5
+                                       
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Submit Request"/>
+                                        <div style="padding-top: 80px;padding-left: 190px;">
+                                        <a  type="button" class="subscribe btn btn-danger" onclick="history.back()" > Cancel  </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                           
+                            </div>
+                            </div>
+                        </form>
+                        </div>
+                        
+                </div>
+
+            </div>
+        
+<app-footer></app-footer>

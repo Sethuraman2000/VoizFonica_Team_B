@@ -1,0 +1,29 @@
+body{
+  background:rgb(252, 250, 251);
+  padding-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  
+}
+.header{
+  border-radius: 20px 20px 0px 0px;
+  padding: 10px 0px;
+  background: rgb(0, 146, 225);
+  color: #fff;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.faq-body{
+  
+  margin-top: 30px;
+}
+.faq-inner{
+  padding: 70px;
+  background: aliceblue;
+}
+
+hr{
+  background-color: #9b9b9b;
+}

@@ -1,0 +1,180 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Sidebar Start -->
+
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+   
+    <a class="navbar-brand" href="/admin">
+        <img src="assets/images/logo_voizfonice_wo_bg.png" alt="..." height="50" href="/home">
+      </a>
+      <div class="d-flex align-items-center ms-4 mb-4">
+          
+          
+      </div>
+      <div class="navbar-nav w-100">
+          
+          
+        <a href="/viewusers" class="nav-item nav-link"><i class="fas fa-user-alt"></i>View Users</a>
+        <a href="/viewplans" class="nav-item nav-link"><i class="far fa-file-powerpoint"></i>View Prepaid Plans</a>
+        <a href="/viewplans" class="nav-item nav-link"><i class="fas fa-file-powerpoint"></i>View Postpaid Plans</a>
+        <a href="/viewplans" class="nav-item nav-link"><i class="fas fa-wifi"></i>View Dongle plans</a>        
+        <a href="/viewmail" class="nav-item nav-link"><i class="fas fa-envelope"></i>Emails</a>
+        <a href="/simrequests" class="nav-item nav-link"><i class="fas fa-sim-card"></i>New Sim Requests</a>
+        <a href="/paymentdetails" class="nav-item nav-link"><i class="far fa-money-bill-alt"></i>Payments Details</a>
+          
+          
+         
+      </div>
+  </nav>
+</div>
+<!-- Sidebar End -->
+<div class="content" style="margin-top: -25px;">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+    
+      <div style="margin-left: 0px;">
+        <button  style="margin-top: 0px;" class="center" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Plan</button>
+        </div>
+      <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+          <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+      </a>
+       
+      
+      <div class="navbar-nav align-items-center ms-auto">
+          
+          
+          <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  
+                  <i class="fas fa-user-circle" style="width: 40px; height: 40px;"></i>
+                  <span class="d-none d-lg-inline-flex" style="padding-left: 10px;">Admin</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                  
+                
+                <a href="/home" class="dropdown-item" (click)="logout()" routerLink="/adminlogin">Log Out</a>
+                
+            </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+  <table class="table table-bordered border-dark"  style="margin-top: 25px;">
+    <thead class="thead-dark">
+      <tr>
+     
+        <th>Card</th>
+        <th>Amount</th>
+        <th>Voice</th>
+        <th>SMS</th>
+        <th>Data</th>
+        <th>Validity</th>
+        
+        
+        <th>Delete</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr *ngFor="let sethu of plans ">
+        <td>
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{sethu.card}}</p>            
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sethu.amount}}</p>
+          
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sethu.voice}}</p>
+          
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sethu.sms}}</p>
+          
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sethu.data}}</p>
+          
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sethu.validity}}</p>
+          
+        </td>
+        
+        
+        <td>
+          <button type="button" class="btn btn-danger" (click)="deletedata(sethu.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr>
+        
+      </tr>
+      <tr>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> 
+        <div class="modal-body">
+          <form [formGroup]="profileForm" id="ro" (ngSubmit)="reg()">
+          <div class="container-fluid" class="bg-light rounded p-4 p-sm-5 my-4 mx-3" >
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;width: 1100px; margin-left: -340px; margin-bottom: -500px;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="padding-left: -600px;padding-right: -500px; margin-bottom: 500px;">
+                    <div >
+                        <div class="d-flex align-items-center justify-content-between mb-3" >
+                            
+                            <h3 style="margin-left:80px ;margin-top: -30px;">Add plan</h3>
+                        </div>
+                        <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="card">
+                            <label for="floatingInput" style="margin-left: 100px;">Card No</label>
+                        </div>
+                        <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="amount">
+                          <label for="floatingInput" style="margin-left: 100px;">Amount</label>
+                      </div>
+                      <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="voice">
+                        <label for="floatingInput" style="margin-left: 110px;">Voice</label>
+                    </div>
+                    <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="sms">
+                      <label for="floatingInput" style="margin-left: 110px;">SMS</label>
+                  </div>
+                  <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="data">
+                    <label for="floatingInput" style="margin-left: 110px;">Data</label>
+                </div>
+                <div class="form-floating mb-3" style="margin-left:-20px ; margin-right: 60px;">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="margin-left:-10px" formControlName="validity">
+                  <label for="floatingInput" style="margin-left: 105px;">Validity</label>
+              </div>
+                       <div  style="margin-left:40px ;margin-right: 140px;">
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add</button>
+                        </div>
+                    </div>
+                </div>
+                
+              
+            </div>
+          
+        </div>
+      </form>
+        
+      </div>
+    </div>
+  </div>
+  
