@@ -1,0 +1,36 @@
+package com.project.register;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@CrossOrigin
+@RestController
+
+public class ContactController {
+	@Autowired
+	private ContactRepository contactrepo;
+	
+	@GetMapping("/getemails")
+	  public List<Contact> getAllEmails() {
+	      return contactrepo.findAll();
+	  }
+	@DeleteMapping("/deleteemail/{id}")
+	  public void deleteemail(@PathVariable("id") int id) {
+	      contactrepo.deleteById(id);
+	  }
+	@CrossOrigin
+	@PostMapping("/addemail")
+	  public Contact createemail(@RequestBody Contact email) {
+	      return contactrepo.save(email);
+	  }
+
+}
